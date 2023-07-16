@@ -1,31 +1,245 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Game Website</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>My Game Website</h1>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"><html><head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /><META http-equiv="Content-Type" content="text/html; charset=utf-8"><link rel="stylesheet" type="text/css" href="css/style.scss"></head><body style="background-color:#111;text-align:center; font-family: VictorMono Nerd Font Mono"><u></u>
+
+<link rel="stylesheet" type="text/scss" href="css/style.scss">
+
+
+
+
+<!-- ----- -->
+<!-- STYLE -->
+<!-- ----- -->
+
+<style>
+  a {color: orange;}
+  a:hover {text-decoration: underline;}
+  a {text-decoration: none}
+
+
+.flexy {
+    display: flex;
+    background-color: black;
+    margin-bottom: 20px;
+    padding-right: 44%;
+    padding-left: 42%;
+    border-bottom: 2px solid red;
+}
+
+.flexy > div {
+  /*background-color: #f1f1f1;*/
+  margin: 10px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+
+.reveal{
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+
+
+.bounce {
+}
+.bounce:hover {
+    -webkit-animation-name: bounce;
+  -moz-animation-name: bounce;
+  -o-animation-name: bounce;
+  animation-name: bounce;
+   animation-duration: 1s;
+   animation-timing-function: ease-in-out;
+   animation-delay: 0s;
+   animation-direction: alternate;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);opacity: 1;}
+  40% {transform: translateY(-20px);}
+  60% {transform: translateY(-10px);}
+}
+
+
+
+/*Copy on click*/
+.tooltip {
+  position: absolute;
+  top: -25px;
+  left: 100%;
+  padding: 5px;
+  /*background-color: #333;*/
+  color: white;
+  border-radius: 3px;
+  border: 1px solid orange;
+}
+
+
+
+</style> 
+<!-- ---------- -->
+<!-- Style ends -->
+<!-- ---------- -->
+
+
+
+
+<!-- ------- -->
+<!-- Scripts -->
+<!-- ------- -->
+
+
+<script>
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+
+// To check the scroll position on page load
+reveal();
+
+
+
+function copy(that){
+  var inp = document.createElement('input');
+  document.body.appendChild(inp);
+  inp.value = that.textContent;
+  inp.select();
+  document.execCommand('copy', false);
+  inp.remove();
+  
+  var tooltip = document.createElement('div');
+  tooltip.innerText = 'Copied!';
+  tooltip.className = 'tooltip';
+  that.appendChild(tooltip);
+  
+  setTimeout(function(){
+    tooltip.remove();
+  }, 1000);
+}
+
+
+</script>
+
+<!-- ----------- -->
+<!-- Scripts end -->
+<!-- ----------- -->
+
+
+
+<!-- --------------- -->
+<!-- URLs at the top -->
+<!-- --------------- -->
+
+<div id="home"></div>
+<br>
+<br>
+<div class="flexy" style="position: fixed; top: 0; z-index: 1000;">
+  <div style="color:red;"><a href="#home">Home</a></div>
+  <div><a href="#gamelist">Games</a></div>
+  <div><a href="url">link text</a></div>
+  <div><a href="#contact">Contact Me</a></div>
+</div>
+</h2>
+
+
+<!-- ---------------- -->
+<!-- Title at the top -->
+<!-- ---------------- -->
+    
+    <header style="margin-top:2%">
+        <h1 class="bounce">My Game Website</h1>
     </header>
-    <main>
-        <div class="game-container">
+
+<!-- ------------------- -->
+<!-- Paragraph and Image -->
+<!-- ------------------- -->
+
+    <h1 style="background-color:black; padding: 10%; padding-bottom: 50%; margin-top:2%;">
+	    <div style="margin-bottom:0%; float: right; margin-right: 400px">
+		    <img src="https://avatars.githubusercontent.com/u/5253952?v=4" height="40%" width="180%" style="border-radius:1000px;"></div>
+   <div style="margin-bottom: 0%; float: left; margin-left: 0px; color:orange; text-align: left;">
+	   Lorem ipsum dolor sit amet, <br>consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <br>quis nostrud exercitation ullamco laboris nisi ut aliquip <br>ex ea commodo consequat. Duis aute irure dolor in reprehenderit <br>in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br>Excepteur sint occaecat cupidatat non proident, sunt in <br>culpa qui officia deserunt mollit anim id est laborum.<br><br><br>
+	   Aliquet risus feugiat in ante metus <br>dictum at. Elementum curabitur vitae nunc sed velit <br>dignissim sodales. Placerat vestibulum lectus mauris ultrices eros in. <br>Et netus et malesuada fames ac turpis. Orci nulla <br>pellentesque dignissim enim sit. Ullamcorper a lacus vestibulum sed arcu <br>non odio. Pharetra sit amet aliquam id diam. Purus <br>sit amet luctus venenatis lectus. Pellentesque eu tincidunt tortor aliquam. <br>Quis hendrerit dolor magna eget est <br>lorem ipsum dolor sit.
+   </div>
+    </h1>
+
+
+
+<!-- ---------- -->
+<!-- Game Links -->
+<!-- ---------- -->
+
+
+<div id="gamelist"><br>
+</div>	
+<div class="container reveal" style="color: white;">
+	<!--<hr/>-->
+        <div class="m_game-container" style="color: white; margin-top:2%;">
             <h2>RailRunner</h2>
-            <iframe src="games/wgl/railrunner/index.html" class="game-frame"></iframe>
-        </div>
-        <div class="game-container">
+            <a  href="" target="_blank" rel="noreferrer"><img style="border: 5px solid orange; border-radius: 20px;" src="https://live.staticflickr.com/4034/4544827697_6f73866999_b.jpg" class="m_game-cover" alt="RailRunner" height="60%" width="40%"></a>
+	</div> </div>
+	<div class="container reveal" style="color: white; margin-top:10%;">
+        <div class="m_game-container">
             <h2>SpeedMaze</h2>
-            <iframe src="games/wgl/SpeedMaze/index.html" class="game-frame"></iframe>
-        </div>
-        <div class="game-container">
+            <a href="" target="_blank" rel="noreferrer"><img style="border: 5px solid orange; border-radius: 20px;"src="https://live.staticflickr.com/4034/4544827697_6f73866999_b.jpg" class="m_game-cover" alt="SpeedMaze" height="60%" width="40%"></a>
+	</div></div>
+        <div class="m_game-container">
+	<div class="container reveal" style="color: white; margin-top:10%;">
             <h2>CrazyCrane</h2>
-            <iframe src="games/wgl/CrazyCrane/index.html" class="game-frame"></iframe>
-        </div>
-        <div class="game-container">
-            <h2>CrazyCrane</h2>
-            <iframe src="games/wgl/ZigZag/index.html" class="game-frame"></iframe>
-        </div>
-        <!-- Add more games as needed -->
-    </main>
-</body>
-</html>
+            <a href="" target="_blank" rel="noreferrer"><img style="border: 5px solid orange; border-radius: 20px;" src="https://live.staticflickr.com/4034/4544827697_6f73866999_b.jpg" class="m_game-cover" alt="CrazyCrane" height="60%" width="40%"></a>
+	</div></div>
+        <div class="m_game-container"><div class="container reveal" style="color: white; margin-top:10%; margin-bottom: 10%;">
+            <h2>ZigZag</h2>
+            <a href="" target="_blank" rel="noreferrer"><img style="border: 5px solid orange; border-radius: 20px;" src="https://live.staticflickr.com/4034/4544827697_6f73866999_b.jpg" class="m_game-cover" alt="ZigZag" height="60%" width="40%"></a>
+		</div>
+        
+    <u></u>
+</div>
+<hr/>
+
+<!-- ------- -->
+<!-- Contact -->
+<!-- ------- -->
+
+
+<div id="contact" style="color:white;padding-bottom:2%; margin-top:2%;">
+	<h1 style="font-size:30px;">Contact Information</h1>
+	<br>
+	<span style="color: #ffff00">Phone<br></span>
+	<span style="color: orange">619-253-0529<span>
+	<br>
+	<br>
+	<br>
+	<span style="color: #ffff00"><i class="fa-brands fa-discord" style="color: white;"></i> Discord<br></span>
+	<span onclick="copy(this)" style="color: orange; position: relative;">gamedevbrad</span>
+	<br>
+	<br>
+	<br>
+	<span style="color: #ffff00"><i class="fa-brands fa-github" style="color: white;"></i> Github<br></span>
+        <div><a href="https://github.com/Bradslavens">Bradslavens</a></div>
+	<br>
+	<br>
+	<br>
+</div>
+</div>
+</body></html>
+
+
