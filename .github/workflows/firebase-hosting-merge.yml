@@ -16,4 +16,4 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYPORTFOLIO_B45ED }}'
           channelId: live
-          projectId: myportfolio-1726f
+          projectId: myportfolio-B45ED
